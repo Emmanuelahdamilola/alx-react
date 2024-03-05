@@ -1,5 +1,10 @@
 import $ from 'jquery';
 import _ from 'lodash';
+import _ from 'lodash';
+const debouncedUpdateCounter = _.debounce(updateCounter, 500); 
+// Bind the debounced function to the button click event
+$('button').on('click', debouncedUpdateCounter);
+
 
 // Elements to be added to the hTML
 const elements = [
