@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "jquery": "^3.7.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8"
   }
 }
