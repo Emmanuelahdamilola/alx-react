@@ -1,7 +1,6 @@
-// task_1/dashboard/src/Notifications.js
+// task_3/dashboard/src/Notifications.js
 import React from 'react';
 import './Notifications.css';
-import closeIcon from './dashboard/close-icon.png';
 import { getLatestNotification } from './utils';
 
 function Notifications() {
@@ -16,7 +15,7 @@ function Notifications() {
         aria-label="Close"
         onClick={handleButtonClick}
       >
-        <img src={closeIcon} alt="Close" />
+        {/* No reference to closeIcon */}
       </button>
       <p>{getLatestNotification()}</p>
       <ul>
