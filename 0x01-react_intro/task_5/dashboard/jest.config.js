@@ -1,4 +1,4 @@
 module.exports = {
-    setupFilesAfterEnv: ["task_5/config/setupTests.js"],
+    setupFilesAfterEnv: ["dashboard/config/setupTests.js"],
   };
   
