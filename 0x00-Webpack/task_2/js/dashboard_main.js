@@ -1,38 +1,29 @@
 import $ from 'jquery';
 import _ from 'lodash';
-const debouncedUpdateCounter = _.debounce(updateCounter, 500); 
-// Bind the debounced function to the button click event
-$('button').on('click', debouncedUpdateCounter);
+import './css/main.css';
 
-
-// Elements to be added to the hTML
+// Elements to be added to the page
 const elements = [
-    '<p>Holberton Dashboard</p>',
-    '<p>Dashboard data for the students</p>',
-    '<button id="clickButton">Click here to get started</button>',
-    '<p id="count"></p>',
-    '<p>Copyright - Holberton School</p>'
+  '<div id="logo"></div>',
+  '<p>Holberton Dashboard</p>',
+  '<p>Dashboard data for the students</p>',
+  '<button id="startButton">Click here to get started</button>',
+  '<p id="count"></p>',
+  '<p>Copyright - Holberton School</p>',
 ];
 
 // Append elements to the body
-elements.forEach(element => {
-    $('body').append(element);
-  });
-  
-  // Function to update the counter
-  function updateCounter() {
-    let count = 0;
-    const countElement = $('#count');
-  
-    // Debounce the function to prevent spamming
-    const debouncedUpdate = _.debounce(() => {
-      count++;
-      countElement.text(`${count} clicks on the button`);
-    }, 1000);
-  
-    // Bind the debounce function to the click event on the button
-    $('#clickButton').on('click', debouncedUpdate);
-  }
-  
-  // Call the function to update the counter
-  updateCounter();
+$(document.body).append(elements.join(''));
+
+// Function to update the click counter
+let count = 0;
+const updateCounter = () => {
+  count += 1;
+  $('#count').text(`${count} clicks on the button`);
+};
+
+// Debounce the updateCounter function using Lodash
+const debouncedUpdateCounter = _.debounce(updateCounter, 1000);
+
+// Bind the debounced function to the click event on the button
+$('#startButton').on('click', debouncedUpdateCounter);
